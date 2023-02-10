@@ -87,7 +87,7 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'https://api.npoint.io/880bbb77af1b8a55e0d2';
+var mUrl = 'https://api.npoint.io/ff5ea74a910ee87538b7';
 
 
 function fetchJSON() {
@@ -139,6 +139,30 @@ $(document).ready( function() {
     // This initially hides the photos' metadata information
     //$('.details').eq(0).hide();
     fetchJSON()
+	document.querySelector('.moreIndicator').addEventListener('click', function() {
+  if (this.classList.contains('rot90')) {
+    this.classList.remove('rot90');
+    this.classList.add('rot270');
+  } else {
+    this.classList.remove('rot270');
+    this.classList.add('rot90');
+  }
+});
+
+
+$("#nextPhoto").on('click', () => {
+    swapPhoto();
+  })
+
+
+  $("#prevPhoto").on('click', () => {
+    mCurrentIndex -= 2;
+    swapPhoto();
+
+
+  })
+
+
 });
 
 
@@ -150,10 +174,10 @@ window.addEventListener('load', function() {
 }, false);
 
 
-function GalleryImage() {
-    var location = '';
-    var description = '';
-    var date = '';
-    var source = '';
+function GalleryImage(imgLocation, description, date, imgPath) {
+  this.imgLocation = imgLocation;
+  this.description = description;
+  this.date = date;
+  this.imgPath = imgPath;
 }
 
