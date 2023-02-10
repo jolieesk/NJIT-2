@@ -89,7 +89,7 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'https://api.npoint.io/ff5ea74a910ee87538b7';
+var mUrl = 'jolie.json';
 
 
 function fetchJSON() {
